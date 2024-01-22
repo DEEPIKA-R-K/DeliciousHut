@@ -38,10 +38,13 @@
             <textarea rows="5" cols="5" id="feedback" name="feedback"></textarea>
             <div class="error"></div>
         </div>
-        <button type="submit" name="submit">Submit</button>
+        <button type="submit" name="submit" id="btn">Submit</button> 
+        <div class="reset">
+            <input type="reset">
+        </div>
     </form>
    </div> 
-   <script>
+<script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxUW7tEfRbwvXJLYFgP_X_TUFI6rfFiwLJ-4S0Onon46uH4oiwxHf4a4v3uJSTjno4/exec'
     const form = document.forms['google-sheet']
   
@@ -50,7 +53,8 @@
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => alert("Thanks for your valuabe feedback! We will contact you regarding this if needed..... "))
         .catch(error => console.error('Error!', error.message))
-    })
+        form.reset();
+  });
   </script>
 </body>
 </html>
